@@ -7,7 +7,7 @@ import jm.task.core.jdbc.service.UserServiceImpl;
 public class Main {
     public static void main(String[] args) {
         // реализуйте алгоритм здесь
-        UserService userService = new UserServiceImpl();
+        UserService userService = UserServiceImpl.getInstance();
         userService.createUsersTable();
         User user1 = new User("Ivan", "Ivanov", (byte) 30);
         User user2 = new User("Igor", "Petrov", (byte) 41);
