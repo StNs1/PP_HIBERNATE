@@ -59,9 +59,7 @@ public class UserDaoHibernateImpl implements UserDao {
     @Override
     public void removeUserById(long id) {
         Transaction transaction = session.beginTransaction();
-        User user = (User) session.createCriteria(User.class)
-                .add(Restrictions.like("id", id))
-                .uniqueResult();
+        User user = (User) session.load(User.class, id);
         session.delete(user);
         transaction.commit();
         session.close();
